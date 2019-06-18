@@ -1,0 +1,14 @@
+---
+
+galaxy_info:
+  role_name: logrotate
+  author: maxgio92
+  description: Ansible role to manage basic log rotation with Logrotate
+  license: MIT
+  min_ansible_version: 2.7.0
+  galaxy_tags:
+    - os
+    - linux
+    - logrotate
+    - logs
+dependencies: []

@@ -9,17 +9,17 @@ Ansible role to manage basic log rotation with Logrotate.
   tasks:
     - include\_role:
         name: logrotate
-  vars:
-  # ...
+      vars:
+      # ...
 ```
   
 ### Available variables
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| logs\_dir\_path | The path of the directory where to rotate logs | string | /var/log | no |
+| logs\_dir\_path | The path of the directory where to rotate logs | string | | yes |
 | logs\_path\_pattern | The pattern to match log files in 'logs\_dir\_path' | string | *.log | no |
-| logrotate\_file\_name | The name of the logrotate configuration file | string | mylogs | no |
+| logrotate\_file\_name | The name of the logrotate configuration file | string | | yes |
 | rotation\_interval | The interval of the log rotation | string | daily | no |
 | retention\_period | Interval count of logs retention | int | 7 | no |
 | compress | Old versions of log files are compressed with gzip | bool | yes | no |

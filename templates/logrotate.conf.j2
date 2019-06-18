@@ -1,0 +1,14 @@
+{{ logs_dir_path }}/{{ logs_path_pattern }} {
+        {{ rotation_interval }}
+        rotate {{ retention_period }}
+        copytruncate
+{% if compress %}        compress
+{% endif %}
+{% if delay_compress %}        delaycompress
+{% endif %}
+{% if missingok %}        missingok
+{% endif %}
+{% if notifempty %}        notifempty
+{% endif %}
+        su {{ rotation_user }} {{ rotation_group }}
+}

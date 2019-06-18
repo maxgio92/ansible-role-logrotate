@@ -1,0 +1,22 @@
+---
+
+- name: Ensure the logs directory exists
+  stat:
+    path: "{{ logs_dir_path }}"
+  register: path
+
+- name: Configure logs rotation
+  template:
+    src: logrotate.conf.j2
+    dest: "/etc/logrotate.d/{{ logrotate_file_name }}"
+  become: yes
+  when:
+    - path.stat.isdir is defined
+    - path.stat.isdir
+
+- name: Fail if the logs directory does not exist
+  fail:
+    msg: The logs directoy does not exist
+  when: (path.stat.isdir is not defined) or
+        (not path.stat.isdir)
+

@@ -1,7 +1,11 @@
 {{ logs_dir_path }}/{{ logs_path_pattern }} {
         {{ rotation_interval }}
         rotate {{ retention_period }}
-        copytruncate
+{% if copytruncate %}        copytruncate
+{% endif %}
+{% if create and not copytruncate %}        create{% if create_mode is defined and create_mode %} {{ create_mode }}{% endif %}{% if create_owner is defined and create_owner %} {{ create_owner }}{% endif %}{% if create_group is defined and create_group %} {{ create_group }}{% endif %}
+
+{% endif %}
 {% if compress %}        compress
 {% endif %}
 {% if delay_compress %}        delaycompress

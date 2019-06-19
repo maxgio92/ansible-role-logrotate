@@ -4,6 +4,8 @@ logs_path_pattern: "*.log" # The pattern to match log files in 'logs_dir_path'
 rotation_interval: daily   # The interval of the log rotation
 retention_period: 7        # Interval count of logs retention
 compress: yes              # Old versions of log files are compressed with gzip
+copytruncate: yes          # Truncate the original log file in place after creating a copy
+create: no                 # Immediately after rotation the log file is created
 delay_compress: no         # Postpone compression of the previous log file to the next rotation cycle
 missingok: yes             # If the log file is missing, go on to the next one without issuing an error message
 notifempty: yes            # Do not rotate the log if it is empty

@@ -33,3 +33,5 @@ Ansible role to manage basic log rotation with Logrotate.
 | notifempty | Do not rotate the log if it is empty | bool | yes | no |
 | rotation\_user | The user that will rotate the logs | string | root | no |
 | rotation\_group | The group that will rotate the logs | string | root | no |
+| sharedscripts | The scripts are only run once, instead of for each log which is rotated | bool | yes | no 
+| postrotate_script | The script that will be executed after the log file is rotated | string | | no |

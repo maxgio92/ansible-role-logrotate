@@ -11,3 +11,4 @@ missingok: yes             # If the log file is missing, go on to the next one w
 notifempty: yes            # Do not rotate the log if it is empty
 rotation_user: root        # The user that will rotate the logs
 rotation_group: root       # The group that will rotate the logs
+sharedscripts: yes         # The scripts are only run once, instead of for each log which is rotated

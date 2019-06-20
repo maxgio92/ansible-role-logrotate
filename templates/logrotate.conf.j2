@@ -14,5 +14,10 @@
 {% endif %}
 {% if notifempty %}        notifempty
 {% endif %}
+{% if postrotate_script is defined and postrotate_script %}{% if sharedscripts %}        sharedscripts
+{% endif %}        postrotate
+                {{ postrotate_script }}
+        endscript
+{% endif %}
         su {{ rotation_user }} {{ rotation_group }}
 }
